@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calvi Studio | Online PhotoBooth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <header>
+            <h1>CALVI STUDIO</h1>
+            <p>Full Creative PhotoBooth</p>
+        </header>
+
+        <main class="main-container">
+            <section class="panel sidebar">
+                <div class="section-title">Camera</div>
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div id="countdown" class="hidden">3</div>
+                </div>
+                <div class="button-row">
+                    <button class="btn btn-primary" id="btn-capture">Take Photo</button>
+                    <button class="btn btn-danger" id="btn-reset">Reset</button>
+                </div>
+                <br>
+                <div class="section-title">Canvas & Grid Settings</div>
+                <div class="config-group">
+                    <label>Canvas Size (Width x Height)</label>
+                    <div class="button-row">
+                        <input type="number" id="canvas-w" value="400" min="200" max="1000">
+                        <input type="number" id="canvas-h" value="600" min="200" max="1500">
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Grid Layout (Cols x Rows)</label>
+                    <div class="button-row">
+                        <input type="number" id="custom-cols" value="2" min="1">
+                        <input type="number" id="custom-rows" value="3" min="1">
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <label>Background Color</label>
+                    <input type="color" id="bg-color-picker" value="#800000">
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="toggle-frame" checked>
+                    <label for="toggle-frame">Photo Frames</label>
+                </div>
+            </section>
+
+            <section class="canvas-area">
+                <div class="canvas-scroll-wrapper">
+                    <div id="capture-area">
+                        <div id="elements-layer"></div>
+                    </div>
+                </div>
+                <div class="canvas-hint">
+                    🖱️ Drag • ⚙️ Scroll (Size) • 🔄 Alt+Scroll (Rotate)
+                </div>
+                <button class="btn btn-success btn-full" id="btn-download">Download Result</button>
+            </section>
+
+            <section class="panel editor">
+                <div class="section-title">Add Elements</div>
+                <div class="editor-input">
+                    <input type="text" id="text-input" placeholder="Add text...">
+                    <button class="btn btn-dark" id="add-text">Add</button>
+                </div>
+                <div class="emoji-grid">
+                    <span class="emoji">❤️</span><span class="emoji">✨</span>
+                    <span class="emoji">📸</span><span class="emoji">🔥</span>
+                    <span class="emoji">🌸</span><span class="emoji">⭐</span>
+                    <span class="emoji">🎀</span><span class="emoji">🍀</span>
+                </div>
+
+                <div class="section-title">Layer Editor</div>
+                <div id="layer-controls">
+                    <p id="empty-msg">Select a layer to edit</p>
+                    <div id="active-tools" class="hidden">
+                        <div class="button-row">
+                            <button class="btn btn-small btn-dark" id="bring-forward">Up</button>
+                            <button class="btn btn-small btn-dark" id="send-backward">Down</button>
+                        </div>
+                        <button class="btn btn-danger btn-small btn-full" id="delete-layer" style="margin-top:10px">Delete Layer</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <canvas id="export-canvas" style="display:none;"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
