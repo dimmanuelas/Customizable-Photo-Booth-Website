@@ -41,7 +41,7 @@ Pastikan Anda telah menginstal perangkat lunak berikut di komputer Anda:
 
 1. **Clone repositori ini:**
    ```bash
-   git clone https://github.com/username/Customizable-Photo-Booth.git
+   git clone https://github.com/username/Customizable-Photo-Booth-Website.git
    ```
 
 2. **Masuk ke direktori proyek:**
